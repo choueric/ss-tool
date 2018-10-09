@@ -6,7 +6,7 @@ LA=`pwd`/la.sh
 
 # Server side
 server_install: ## install server program
-	@$(SA) download && $(SA) install 
+	@$(SA) download && sudo $(SA) install 
 
 server_start: ## run server
 	@$(SA) restart
@@ -22,7 +22,7 @@ server_uninstall: ## uninstall server
 
 # local side
 local_install: ## install local program
-	@$(LA) download && $(LA) install 
+	@$(LA) download && sudo $(LA) install 
 
 local_start: ## run local
 	@$(LA) restart
