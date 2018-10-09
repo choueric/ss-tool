@@ -1,0 +1,10 @@
+{
+    "server":"12.34.56.78",
+    "local_port":1080,
+    "method": "aes-256-cfb-auth",
+    "timeout":600,
+    "port_password":
+    {
+        "8488":"password1"
+    }
+}
