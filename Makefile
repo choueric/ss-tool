@@ -1,7 +1,6 @@
 SA=`pwd`/sa.sh
 LA=`pwd`/la.sh
 
-.PHONY: serve install_theme test alter help
 .DEFAULT_GOAL := help
 
 # Server side
