@@ -17,14 +17,14 @@ SERVICE=shadowsocks-server.service
 
 download() {
     echo "Download Shadowsocks Server Binary ..."
-    mkdir -p $TMP
-    wget "$DOWNLOAD_URL_PREFIX/$SS_VERSION/$TARBALL" -O $TMP/$TARBALL
-    tar xfv $TMP/$TARBALL -C $TMP
+    mkdir -p $DOWNLOAD_DIR
+    wget "$DOWNLOAD_URL_PREFIX/$SS_VERSION/$TARBALL" -O $DOWNLOAD_DIR/$TARBALL
+    tar xfv $DOWNLOAD_DIR/$TARBALL -C $DOWNLOAD_DIR
 }
 
 install_ss() {
     echo "Install Shadowsocks Server ..."
-    install -v $TMP/$BIN $PREFIX/bin
+    install -v $DOWNLOAD_DIR/$BIN $PREFIX/bin
     install -v $CONFIG $PREFIX/share/$CONFIG_FILE
     install -v $SERVICE_DIR/$SERVICE $SYSTEMD_DIR
     systemctl enable $SERVICE
@@ -46,6 +46,6 @@ case "$1" in
     "stop") check_user; systemctl stop $SERVICE;;
     "status") systemctl status $SERVICE;;
     "uninstall") check_user; uninstall;;
-    "clean") rm -rf $TMP;;
+    "clean") rm -rf $DOWNLOAD_DIR;;
 	*) print_usage;;
 esac

@@ -3,7 +3,7 @@ SYSTEMD_DIR=/lib/systemd/system
 
 CONFIG_DIR=./config
 SERVICE_DIR=./service
-TMP="`pwd`/downloads"
+DOWNLOAD_DIR="`pwd`/downloads"
 
 check_user() {
     if [ "$(id -u)" != "0" ]; then
